@@ -92,14 +92,14 @@ module ActiveSupport
       end
 
       class << self
-        remove_method :encode_big_decimal_as_string, :encode_big_decimal_as_string=
+        #remove_method :encode_big_decimal_as_string, :encode_big_decimal_as_string=
 
         # If false, serializes BigDecimal objects as numeric instead of wrapping
         # them in a string.
-        attr_accessor :encode_big_decimal_as_string
+        #attr_accessor :encode_big_decimal_as_string
       end
 
-      self.encode_big_decimal_as_string = true
+      #self.encode_big_decimal_as_string = true
     end
   end
 end
@@ -152,7 +152,8 @@ class BigDecimal
 
   def as_json(options = nil) #:nodoc:
     if finite?
-      ActiveSupport.encode_big_decimal_as_string ? to_s : self
+      #ActiveSupport.encode_big_decimal_as_string ? to_s : self
+      to_s
     else
       nil
     end
